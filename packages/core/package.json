@@ -1,0 +1,28 @@
+{
+  "name": "@tp/core",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Alex Vizcaino <avizcaino@uxland.es>",
+  "homepage": "https://github.com/uxland/tp-app/tree/master/packages/core#readme",
+  "license": "ISC",
+  "main": "lib/index",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/at-ai/tp.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/at-ai/tp/issues"
+  },
+  "dependencies": {
+    "@uxland/functional-utilities": "^1.0.0-alpha.24",
+    "@uxland/uxl-prism": "^3.6.20"
+  }
+}

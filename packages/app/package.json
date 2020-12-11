@@ -1,9 +1,9 @@
 {
-  "name": "@tp/calculator",
+  "name": "@tp/app",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Alex Vizcaino <avizcaino@uxland.es>",
-  "homepage": "https://github.com/uxland/tp-app/tree/master/packages/calculator#readme",
+  "homepage": "https://github.com/uxland/tp-app/tree/master/packages/app#readme",
   "license": "ISC",
   "main": "lib/index",
   "module": "es/index.js",
@@ -16,23 +16,19 @@
     "url": "git+https://github.com/at-ai/tp.git"
   },
   "scripts": {
-    "test:unit": "jest --collect-coverage",
-    "test": "yarn test:unit",
-    "calculate": "ts-node src/calculator.ts"
+    "serve": "rimraf dist && node --experimental-worker start.js",
+    "build": "rimraf dist && node --experimental-worker build.js"
   },
   "bugs": {
     "url": "https://github.com/at-ai/tp/issues"
   },
-  "devDependencies": {
-    "jest": "^26.6.3",
-    "ts-node": "^9.1.1"
-  },
   "dependencies": {
     "@tp/core": "^0.0.0",
-    "@uxland/uxl-prism": "^3.6.20",
+    "@uxland/functional-utilities": "^1.0.0-alpha.24",
+    "@uxland/uxl-content-switcher": "^3.0.4",
     "@uxland/uxl-regions": "^3.3.10",
-    "lit-element": "^2.4.0",
-    "lodash": "^4.17.20",
-    "xlsx": "^0.16.9"
+    "@uxland/uxl-routed-region": "^3.1.6",
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "lit-element": "^2.4.0"
   }
 }
