@@ -28,6 +28,7 @@
     "ts-node": "^9.1.1"
   },
   "dependencies": {
+    "convert-excel-to-json": "^1.7.0",
     "lodash": "^4.17.20"
   }
 }
