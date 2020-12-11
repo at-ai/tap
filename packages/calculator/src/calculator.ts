@@ -30,28 +30,53 @@ export const calculate = (student: Student) => {
 
 const result = excelToJson({
   sourceFile: __dirname + "/marks.xlsx",
-  sheets: ["sheet1"],
-})?.sheet1;
+});
 
-const headers = result[0]; // _.invert(result[0]);
-result.shift();
-const mappedStudents = result.map((r) =>
-  Object.keys(r).reduce((mapped: any, k) => {
-    if (k == "A" || k == "B" || k == "C")
-      return { ...mapped, [headers[k]]: r[k] };
-    else
-      return {
-        ...mapped,
-        criteria: { ...(mapped.criteria || {}), [headers[k]]: r[k] },
-      };
-  }, {})
-);
+Object.keys(result).forEach((sheet) => {
+  const headers = result[sheet][0];
+  result[sheet].shift();
+  const mappedStudents = result[sheet].map((r) =>
+    Object.keys(r).reduce((mapped: any, k) => {
+      if (k == "A" || k == "B" || k == "C")
+        return { ...mapped, [headers[k]]: r[k] };
+      else
+        return {
+          ...mapped,
+          criteria: { ...(mapped.criteria || {}), [headers[k]]: r[k] },
+        };
+    }, {})
+  );
 
-const studentMarks = mappedStudents.map((s) => ({
-  name: s.Nom,
-  firstSurname: s["Primer Cognom"],
-  secondSurname: s["Segon Cognom"],
-  // marks: calculate(s),
-  ...calculate(s),
-}));
-console.table(studentMarks);
+  const studentMarks = mappedStudents.map((s) => ({
+    name: s.Nom,
+    firstSurname: s["Primer Cognom"],
+    secondSurname: s["Segon Cognom"],
+    // marks: calculate(s),
+    ...calculate(s),
+  }));
+  console.log(`####### ${sheet} ######`);
+  console.table(studentMarks);
+});
+
+// const headers = result[0]; // _.invert(result[0]);
+// result.shift();
+// const mappedStudents = result.map((r) =>
+//   Object.keys(r).reduce((mapped: any, k) => {
+//     if (k == "A" || k == "B" || k == "C")
+//       return { ...mapped, [headers[k]]: r[k] };
+//     else
+//       return {
+//         ...mapped,
+//         criteria: { ...(mapped.criteria || {}), [headers[k]]: r[k] },
+//       };
+//   }, {})
+// );
+
+// const studentMarks = mappedStudents.map((s) => ({
+//   name: s.Nom,
+//   firstSurname: s["Primer Cognom"],
+//   secondSurname: s["Segon Cognom"],
+//   // marks: calculate(s),
+//   ...calculate(s),
+// }));
+// console.table(studentMarks);
