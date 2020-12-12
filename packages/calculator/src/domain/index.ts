@@ -13,9 +13,16 @@ export type MarkValues = {
   [id in Mark]: number;
 };
 
-export interface Student {
+export interface StudentHeader {
   name: string;
   firstSurname: string;
   secondSurname: string;
+}
+
+export interface Student extends StudentHeader {
   criteria: Criteria;
+}
+
+export interface StudentMarks extends StudentHeader {
+  [dimension: string]: string;
 }

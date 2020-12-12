@@ -31,6 +31,8 @@
     "@tp/core": "^0.0.0",
     "@uxland/uxl-prism": "^3.6.20",
     "@uxland/uxl-regions": "^3.3.10",
+    "@uxland/uxl-utilities": "^3.5.3",
+    "@vaadin/vaadin-grid": "5.7.4",
     "lit-element": "^2.4.0",
     "lodash": "^4.17.20",
     "xlsx": "^0.16.9"
