@@ -153,14 +153,15 @@ export class Calculator extends locale(LitElement) {
           ...calculate(s),
         }));
       });
-      const wb = XLSX.utils.book_new();
-      const markSheets = this.marks.reduce(
-        (sheets, group) =>
-          sheets.concat(XLSX.utils.json_to_sheet<StudentMarks>(group)),
-        []
-      );
-      markSheets.forEach((s) => XLSX.utils.book_append_sheet(wb, s));
-      XLSX.writeFile(wb, "marks.xlsx");
+      console.log(this.marks);
+      // const wb = XLSX.utils.book_new();
+      // const markSheets = this.marks.reduce(
+      //   (sheets, group) =>
+      //     sheets.concat(XLSX.utils.json_to_sheet<StudentMarks>(group)),
+      //   []
+      // );
+      // markSheets.forEach((s) => XLSX.utils.book_append_sheet(wb, s));
+      // XLSX.writeFile(wb, "marks.xlsx");
     });
     reader.readAsBinaryString(file);
   }
