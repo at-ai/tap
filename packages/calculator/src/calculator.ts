@@ -1,5 +1,6 @@
 import * as _ from "lodash";
 import { Student } from "./domain";
+import { dimensionsLocales } from "./master-data/criteria-dimensions";
 import { getCriteriaDimensions } from "./utilities/get-criteria-dimensions";
 import { getMarksMean } from "./utilities/get-marks-mean";
 
@@ -15,12 +16,16 @@ export const calculate = (student: Student) => {
     []
   );
   const groupDimensions = _.groupBy(toCriteriaDimensions, "dimension");
-  const marks = Object.keys(groupDimensions).reduce(
-    (dimensions, d) => ({
-      ...dimensions,
-      [d]: getMarksMean(groupDimensions[d].map((value) => value?.mark)),
-    }),
-    {}
-  );
+  const marks = Object.keys(groupDimensions)
+    .sort()
+    .reduce(
+      (dimensions, d) => ({
+        ...dimensions,
+        [dimensionsLocales[d]]: getMarksMean(
+          groupDimensions[d].map((value) => value?.mark)
+        ),
+      }),
+      {}
+    );
   return marks;
 };

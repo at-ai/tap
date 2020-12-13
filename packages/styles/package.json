@@ -1,13 +1,18 @@
 {
-  "name": "@tp/core",
+  "name": "@tp/styles",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Alex Vizcaino <avizcaino@uxland.es>",
-  "homepage": "https://github.com/at-ai/tp/tree/master/packages/core#readme",
+  "homepage": "https://github.com/at-ai/tp/tree/master/packages/styles#readme",
   "license": "ISC",
   "main": "lib/index",
   "module": "es/index.js",
   "types": "lib/index.d.ts",
+  "files": [
+    "es",
+    "lib",
+    "styles.scss"
+  ],
   "publishConfig": {
     "registry": "http://registry.npmjs.org/"
   },
@@ -22,7 +27,6 @@
     "url": "https://github.com/at-ai/tp/issues"
   },
   "dependencies": {
-    "@uxland/functional-utilities": "^1.0.0-alpha.24",
-    "@uxland/uxl-prism": "^3.6.20"
+    "@uxland/style-utilities": "^1.0.0-alpha.7"
   }
 }

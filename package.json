@@ -7,7 +7,7 @@
     "url": "git+https://github.com/uxland/tp-app.git"
   },
   "bugs": {
-    "url": "https://github.com/uxland/tp-app/issues"
+    "url": "https://github.com/at-ai/tp/issues"
   },
   "homepage": "https://github.com/uxland/tp-app#readme",
   "devDependencies": {

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Alex Vizcaino <avizcaino@uxland.es>",
-  "homepage": "https://github.com/uxland/tp-app/tree/master/packages/app#readme",
+  "homepage": "https://github.com/at-ai/tp/tree/master/packages/app#readme",
   "license": "ISC",
   "main": "lib/index",
   "module": "es/index.js",

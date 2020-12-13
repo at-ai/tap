@@ -2482,6 +2482,11 @@
     ts-node "^9.0.0"
     typescript "^4.0.2"
 
+"@uxland/style-utilities@^1.0.0-alpha.7":
+  version "1.0.0-alpha.7"
+  resolved "https://registry.yarnpkg.com/@uxland/style-utilities/-/style-utilities-1.0.0-alpha.7.tgz#cba27ae370476b89fe0d8f36abefda6b25502867"
+  integrity sha512-ig2I5Qdy89c7TN7sdr3jrbWbheiV+ecKBldHq66pxHggiN28cwv1VxaD3fp6XX2FIDlO/lx2BKJM8WoqeBq3MA==
+
 "@uxland/uxl-content-switcher@^3.0.4":
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/@uxland/uxl-content-switcher/-/uxl-content-switcher-3.0.4.tgz#8ccdaf921fff324984d51c8d95e580aee3bc47cf"

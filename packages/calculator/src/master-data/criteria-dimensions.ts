@@ -1,5 +1,13 @@
 import { CriteriaDimensions } from "../domain";
 
+export const dimensionsLocales = {
+  D1: "Dimensió comunicació oral",
+  D2: "Dimensió comprensió Lectora",
+  D3: "Dimensió expressió escrita",
+  D4: "Dimensió literària",
+  D5: "Dimensió Plurilingue i Intercultural",
+};
+
 export const criteriaDimensions: CriteriaDimensions[] = [
   {
     id:
