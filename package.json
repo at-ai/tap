@@ -1,9 +1,34 @@
 {
   "name": "tp",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
+  "private": true,
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uxland/tp-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/at-ai/tp/issues"
+  },
+  "homepage": "https://github.com/uxland/tp-app#readme",
   "devDependencies": {
+    "@uxland/project-tools": "^1.0.0-alpha.23",
+    "husky": "^4.3.5",
     "lerna": "^3.22.1"
+  },
+  "dependencies": {},
+  "scripts": {
+    "run:calculator": "lerna run calculate --scope @tp/calculator --stream",
+    "serve:app": "lerna run serve --scope @tp/app --stream",
+    "api:generate": "lerna run api:generate --scope @tp/core --stream",
+    "test:calculator": "lerna run test --scope @tp/calculator --stream"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged -c node_modules/@uxland/project-tools/lint/lint-staged.config.js",
+      "commit-msg": "commitlint --config node_modules/@uxland/project-tools/lint/commitlint.config.js -E HUSKY_GIT_PARAMS"
+    }
   }
 }

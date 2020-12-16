@@ -1,0 +1,32 @@
+{
+  "name": "@tp/styles",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Alex Vizcaino <avizcaino@uxland.es>",
+  "homepage": "https://github.com/at-ai/tp/tree/master/packages/styles#readme",
+  "license": "ISC",
+  "main": "lib/index",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "es",
+    "lib",
+    "styles.scss"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/at-ai/tp.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/at-ai/tp/issues"
+  },
+  "dependencies": {
+    "@uxland/style-utilities": "^1.0.0-alpha.7"
+  }
+}

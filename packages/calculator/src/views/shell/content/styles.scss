@@ -1,0 +1,10 @@
+:host {
+  @include layout-flex;
+  @include layout;
+  min-width: 1px;
+  width: 100%;
+}
+
+.marks-lists {
+  @include layout-vertical;
+}

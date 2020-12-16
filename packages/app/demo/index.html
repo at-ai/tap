@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5"
+    />
+    <title>TP</title>
+    <meta
+      name="description"
+      content="Descubre Smells Like Art, la mayor plataforma para artistas emergentes y sus originales obras de arte. Difunde tu talento en nuestra galería de arte online."
+    />
+    <meta name="theme-color" content="#f4c700" />
+    <meta
+      name="keywords"
+      content="portal de arte,portal de artistas,valoracion de obras,arte,promociona tus obras,obras de arte,tienda online arte,mostrar arte,montar galeria de arte,arte pintura moderna, Portal de Arte pensado por y para todos los artistas | Smells Like Art"
+    />
+    <meta name="language" content="es" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link
+      rel="shortcut icon"
+      href="./images/icons/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="apple-touch-icon" href="./images/icons/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./images/icons/apple-touch-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./images/icons/apple-touch-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./images/icons/apple-touch-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./images/icons/apple-touch-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./images/icons/apple-touch-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./images/icons/apple-touch-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./images/icons/apple-touch-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./images/icons/apple-touch-icon-180x180.png"
+    />
+    <link rel="preconnect" href="https://admin-test.smellslikeart.org" />
+    <link
+      rel="preconnect"
+      href="https://test-sla-backend-uxl.ey.r.appspot.com"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Material+Icons&display=block"
+      rel="stylesheet"
+    />
+
+    $css
+  </head>
+  <custom-style>
+    <style>
+      html {
+        font-size: 14px;
+      }
+
+      html input {
+        padding: 0;
+      }
+
+      body {
+        margin: 0;
+        font-size: 14px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      body .splash {
+        font-size: 60px;
+        font-weight: bold;
+        font-family: "Roboto", sans-serif;
+        text-align: center;
+        align-content: center;
+        width: 100%;
+        height: 100vh;
+      }
+
+      body .splash div {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </custom-style>
+  <body>
+    <noscript>
+      <h1>Please enable Javascript</h1>
+    </noscript>
+    <script>
+      if ("serviceWorker" in navigator) {
+        console.log("Will the service worker register?");
+        navigator.serviceWorker
+          .register("./sw.js")
+          .then(function (reg) {
+            console.log("Yes it did! SW registered: ", reg);
+          })
+          .catch(function (err) {
+            console.log("No it didn't. This happened: ", err);
+          });
+      }
+      if (!window["process"])
+        window["process"] = { env: { NODE_ENV: "production" } };
+      window.polymerSkipLoadingFontRoboto = true;
+      window.uxlPrism = window.uxlPrism || { settings: {} };
+      window.uxlPrism.settings = Object.assign(
+        {},
+        window.uxlPrism.settings,
+        {}
+      );
+    </script>
+    $bundles
+  </body>
+</html>

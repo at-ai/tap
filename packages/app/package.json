@@ -1,0 +1,34 @@
+{
+  "name": "@tp/app",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Alex Vizcaino <avizcaino@uxland.es>",
+  "homepage": "https://github.com/at-ai/tp/tree/master/packages/app#readme",
+  "license": "ISC",
+  "main": "lib/index",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/at-ai/tp.git"
+  },
+  "scripts": {
+    "serve": "rimraf dist && node --experimental-worker start.js",
+    "build": "rimraf dist && node --experimental-worker build.js"
+  },
+  "bugs": {
+    "url": "https://github.com/at-ai/tp/issues"
+  },
+  "dependencies": {
+    "@tp/core": "^0.0.0",
+    "@uxland/functional-utilities": "^1.0.0-alpha.24",
+    "@uxland/uxl-content-switcher": "^3.0.4",
+    "@uxland/uxl-regions": "^3.3.10",
+    "@uxland/uxl-routed-region": "^3.1.6",
+    "@webcomponents/webcomponentsjs": "^2.5.0",
+    "lit-element": "^2.4.0"
+  }
+}
