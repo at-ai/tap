@@ -23,6 +23,14 @@ export interface Student extends StudentHeader {
   criteria: Criteria;
 }
 
-export interface StudentMarks extends StudentHeader {
-  [dimension: string]: string;
+export type StudentDimensionType = {
+  mark: Mark;
+  value: number;
+  fringe: boolean;
+};
+export type StudentDimensions = { [dimension: string]: StudentDimensionType };
+export type StudentMarks = StudentHeader & StudentDimensions;
+export interface GroupMarks {
+  [group: string]: StudentMarks[];
 }
+export type FinalStudentMarks = StudentHeader & { [dimension: string]: Mark };
