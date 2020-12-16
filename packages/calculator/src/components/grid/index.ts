@@ -3,6 +3,7 @@ import { locale } from "@uxland/uxl-prism";
 import { propertiesObserver } from "@uxland/uxl-utilities";
 import "@vaadin/vaadin-grid/vaadin-grid";
 import "@vaadin/vaadin-grid/vaadin-grid-sort-column";
+import "@vaadin/vaadin-text-field/vaadin-text-field";
 import {
   css,
   CSSResult,
@@ -70,14 +71,16 @@ export default class MarksGrid extends locale(propertiesObserver(LitElement)) {
 
   get columns(): Column[] {
     const item = this.items ? this.items[0] : {};
-    return Object.keys(item)?.map((k) => ({
-      path: k,
-      header: k,
-      renderer:
-        fixHeaders.indexOf(k) > -1
-          ? this.genericRenderer.bind(this)
-          : this.dimensionRenderer.bind(this),
-    }));
+    return Object.keys(item)
+      ?.filter((k) => k != "id")
+      ?.map((k) => ({
+        path: k,
+        header: k,
+        renderer:
+          fixHeaders.indexOf(k) > -1
+            ? this.genericRenderer.bind(this)
+            : this.dimensionRenderer.bind(this),
+      }));
   }
 
   private genericRenderer(root, column, rowData) {
@@ -88,16 +91,25 @@ export default class MarksGrid extends locale(propertiesObserver(LitElement)) {
     const data = rowData.item[column.path];
     if (data?.fringe)
       render(
-        html`<input
-          value=${data?.mark}
-          @change=${this.inputChanged.bind(this)}
-        />`,
+        html`<vaadin-text-field
+          .id=${rowData.item.id}
+          .path=${column.path}
+          .value=${data?.mark}
+          @input=${this.inputChanged.bind(this)}
+        ></vaadin-text-field>`,
         root
       );
     else render(html`<div>${data?.mark}</div>`, root);
   }
 
   private inputChanged(ev) {
-    console.log(ev);
+    const value = ev.currentTarget.value;
+    const id = ev.currentTarget.id;
+    const path = ev.currentTarget.path;
+    const newData = this.items.map((i) => {
+      if (i.id == id) return { ...i, [path]: { ...i[path], mark: value } };
+      else return i;
+    });
+    this.dispatchEvent(new CustomEvent("data-updated", { detail: newData }));
   }
 }

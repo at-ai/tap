@@ -9,13 +9,17 @@ import {
 import thunk from "redux-thunk";
 import { moduleName } from "../constants";
 import { GroupMarks, StudentMarks } from "../domain";
-import { groupMarksReducer as groupMarks } from "./group-marks";
+import {
+  groupMarksReducer as groupMarks,
+  exportMarksReducer as exportMarks,
+} from "./group-marks";
 import * as R from "ramda";
 
 export let store: Store;
 
 export interface State {
   groupMarks: GroupMarks;
+  exportMarks: GroupMarks;
 }
 
 const composeEnhancers =
@@ -28,6 +32,7 @@ const initializeStore = () => {
   store = createStore(
     combineReducers({
       groupMarks,
+      exportMarks,
     }),
     composeEnhancers(applyMiddleware(thunk))
   );

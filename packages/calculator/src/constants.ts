@@ -7,3 +7,4 @@ export const calculatorConstantBuilder = (
 ): Builder =>
   moduleConstantBuilder(moduleName.toUpperCase())(suffix, separator);
 export const calculatorActionsBuilder = calculatorConstantBuilder("ACTION");
+export const calculatorEventsBuilder = calculatorConstantBuilder("EVENT");
