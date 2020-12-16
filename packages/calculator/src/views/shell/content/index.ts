@@ -12,7 +12,7 @@ import {
   unsafeCSS,
 } from "lit-element";
 import { repeat } from "lit-html/directives/repeat";
-import * as XLSX from "xlsx";
+import { exportToXLSX } from "../../../app/export-to-xlsx";
 import {
   groupMarksSelector,
   exportMarksSelector,
@@ -27,6 +27,7 @@ import { moduleName } from "../../../constants";
 import { GroupMarks } from "../../../domain";
 import { store } from "../../../store";
 import styles from "./styles.scss";
+import * as XLSX from "xlsx";
 
 @customElement(`${moduleName}-shell-content`)
 export class Calculator extends locale(LitElement) {
@@ -38,19 +39,14 @@ export class Calculator extends locale(LitElement) {
 
   render(): TemplateResult {
     return html`<div class="marks-lists">
-      <!-- <label for="grades">Choose a profile picture:</label>
-      <input
-        type="file"
-        id="grades"
-        name="grades"
-        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-        @change=${this.fileLoaded.bind(this)}
-      /> -->
       <vaadin-upload
         accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
         max-files="1"
         @files-changed=${this.fileLoaded.bind(this)}
       ></vaadin-upload>
+      <vaadin-button @click=${this.exportToXLSX.bind(this)}
+        >EXPORT</vaadin-button
+      >
       ${this.groupMarks
         ? repeat(
             Object.keys(this.groupMarks),
@@ -73,6 +69,10 @@ export class Calculator extends locale(LitElement) {
 
   private dataUpdated(g: string, ev) {
     setExportMarks({ ...this.exportMarks, [g]: ev.detail });
+  }
+
+  private exportToXLSX() {
+    exportToXLSX(this.exportMarks);
   }
 
   private headers = ["Nom", "Primer Cognom", "Segon Cognom"];
@@ -113,50 +113,6 @@ export class Calculator extends locale(LitElement) {
           }, {});
           setGroupMarks(marks);
           setExportMarks(marks);
-          // const wb = XLSX.utils.book_new();
-          // const markSheets = Object.keys(marks).reduce(
-          //   (sheets, group) => ({
-          //     ...sheets,
-          //     [group]: XLSX.utils.json_to_sheet<StudentMarks>(marks[group]),
-          //   }),
-          //   // sheets.concat(XLSX.utils.json_to_sheet<StudentMarks>(marks[group])),
-          //   {}
-          // );
-          // const styledSheets = Object.keys(markSheets).map((s) =>
-          //   Object.keys(s).reduce((cells, c: string) => {
-          //     const cell = s[c];
-          //     if (cell.mark)
-          //       cells[c] = {
-          //         t: "s",
-          //         v: cell.fringe ? `${cell.mark}*` : cell.mark,
-          //         s: {
-          //           fill: {
-          //             patternType: "none", // none / solid
-          //             fgColor: { rgb: "FF000000" },
-          //             bgColor: { rgb: "FFFFFFFF" },
-          //           },
-          //           font: {
-          //             name: "Times New Roman",
-          //             sz: 16,
-          //             color: { rgb: "#FF000000" },
-          //             bold: true,
-          //             italic: false,
-          //             underline: false,
-          //           },
-          //           border: {
-          //             top: { style: "thin", color: { auto: 1 } },
-          //             right: { style: "thin", color: { auto: 1 } },
-          //             bottom: { style: "thin", color: { auto: 1 } },
-          //             left: { style: "thin", color: { auto: 1 } },
-          //           },
-          //         },
-          //       };
-          //     else cells[c] = cell;
-          //     return cells;
-          //   }, {})
-          // );
-          // styledSheets.forEach((s) => XLSX.utils.book_append_sheet(wb, s));
-          // XLSX.writeFile(wb, "marks.xlsx");
         }).bind(this)
       );
       reader.readAsBinaryString(file);
