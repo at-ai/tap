@@ -16,3 +16,4 @@ jobs:
           projectId: teacher-assistant-portal
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

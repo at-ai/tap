@@ -1,0 +1,65 @@
+[debug] [2020-12-16T15:33:06.463Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T15:33:06.466Z] Command:       /Users/alexvizcaino/.nvm/versions/node/v14.15.0/bin/node /usr/local/bin/firebase init hosting:github
+[debug] [2020-12-16T15:33:06.466Z] CLI Version:   9.0.0
+[debug] [2020-12-16T15:33:06.466Z] Platform:      darwin
+[debug] [2020-12-16T15:33:06.466Z] Node Version:  v14.15.0
+[debug] [2020-12-16T15:33:06.476Z] Time:          Wed Dec 16 2020 16:33:06 GMT+0100 (Hora estàndard del Centre d’Europa)
+[debug] [2020-12-16T15:33:06.477Z] ----------------------------------------------------------------------
+[debug] [2020-12-16T15:33:06.477Z] 
+[debug] [2020-12-16T15:33:06.486Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-12-16T15:33:06.486Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/alexvizcaino/Documents/dev/tp
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using teacher-assistant-portal. 
+[debug] [2020-12-16T15:33:06.496Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-12-16T15:33:06.496Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-12-16T15:33:06.783Z] <<< HTTP RESPONSE 200 {"date":"Wed, 16 Dec 2020 15:33:06 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-12-16T15:33:06.845Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/teacher-assistant-portal  
+ 
+[debug] [2020-12-16T15:33:07.097Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Wed, 16 Dec 2020 15:33:07 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+=== Hosting:github Setup
+[info] 
+[info] i  Detected a .git folder at /Users/alexvizcaino/Documents/dev/tp 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=459927914&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2020-12-16T15:33:08.228Z] >>> HTTP REQUEST POST https://github.com/login/oauth/access_token  
+ {"client_id":"89cf50f02ac6aaed3484","client_secret":"3330d14abc895d9a74d5f17cd7a00711fa2c5bf0","code":"ee446189de097fab4fb8","redirect_uri":"http://localhost:9005","state":"459927914"}
+[debug] [2020-12-16T15:33:08.621Z] <<< HTTP RESPONSE 200 {"date":"Wed, 16 Dec 2020 15:33:08 GMT","content-type":"application/json; charset=utf-8","transfer-encoding":"chunked","server":"GitHub.com","status":"200 OK","vary":"X-PJAX, Accept-Encoding, Accept, X-Requested-With, Accept-Encoding","etag":"W/\"0defa3f5b47a06fea00b5cb51e658734\"","cache-control":"max-age=0, private, must-revalidate","strict-transport-security":"max-age=31536000; includeSubdomains; preload","x-frame-options":"deny","x-content-type-options":"nosniff","x-xss-protection":"1; mode=block","referrer-policy":"origin-when-cross-origin, strict-origin-when-cross-origin","expect-ct":"max-age=2592000, report-uri=\"https://api.github.com/_private/browser/errors\"","content-security-policy":"default-src 'none'; base-uri 'self'; block-all-mixed-content; connect-src 'self' uploads.github.com www.githubstatus.com collector.githubapp.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com cdn.optimizely.com logx.optimizely.com/v1/events wss://alive.github.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com; frame-ancestors 'none'; frame-src render.githubusercontent.com; img-src 'self' data: github.githubassets.com identicons.github.com collector.githubapp.com github-cloud.s3.amazonaws.com *.githubusercontent.com; manifest-src 'self'; media-src 'none'; script-src github.githubassets.com; style-src 'unsafe-inline' github.githubassets.com; worker-src github.com/socket-worker-5029ae85.js gist.github.com/socket-worker-5029ae85.js","x-github-request-id":"C077:660F:69BF293:97FC0D4:5FDA28B4"}
+[debug] [2020-12-16T15:33:08.623Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2020-12-16T15:33:09.078Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2020-12-16T15:33:09.079Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"avizcaino","id":12660226,"node_id":"MDQ6VXNlcjEyNjYwMjI2","avatar_url":"https://avatars1.githubusercontent.com/u/12660226?v=4","gravatar_id":"","url":"https://api.github.com/users/avizcaino","html_url":"https://github.com/avizcaino","followers_url":"https://api.github.com/users/avizcaino/followers","following_url":"https://api.github.com/users/avizcaino/following{/other_user}","gists_url":"https://api.github.com/users/avizcaino/gists{/gist_id}","starred_url":"https://api.github.com/users/avizcaino/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/avizcaino/subscriptions","organizations_url":"https://api.github.com/users/avizcaino/orgs","repos_url":"https://api.github.com/users/avizcaino/repos","events_url":"https://api.github.com/users/avizcaino/events{/privacy}","received_events_url":"https://api.github.com/users/avizcaino/received_events","type":"User","site_admin":false,"name":"Alex Vizcaino","company":"@uxland","blog":"http://avizcaino.github.io/","location":"Reus","email":"avizcainoluna@gmail.com","hireable":true,"bio":"I'm a Frontend/Backend developer at @uxland since 2014. I work with @Polymer, @aurelia, TypeScript, @Esri, SAPUI5, @mongodb, @couchbase and SAP.","twitter_username":"avizcainodev","public_repos":6,"public_gists":0,"followers":3,"following":9,"created_at":"2015-05-29T13:38:58Z","updated_at":"2020-12-16T13:56:41Z","private_gists":2,"total_private_repos":4,"owned_private_repos":4,"disk_usage":23637,"collaborators":0,"two_factor_authentication":true,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] ✔  Success! Logged into GitHub as avizcaino 
+[info] 
+[debug] [2020-12-16T15:33:12.952Z] >>> [apiv2][query] GET https://api.github.com/repos/at-ai/tp/actions/secrets/public-key type=owner
+[debug] [2020-12-16T15:33:13.285Z] <<< [apiv2][status] GET https://api.github.com/repos/at-ai/tp/actions/secrets/public-key 403
+[debug] [2020-12-16T15:33:13.285Z] <<< [apiv2][body] GET https://api.github.com/repos/at-ai/tp/actions/secrets/public-key {"message":"Must have admin rights to Repository.","documentation_url":"https://docs.github.com/rest/reference/actions#get-a-repository-public-key"}
+[debug] [2020-12-16T15:33:14.949Z] >>> [apiv2][query] GET https://api.github.com/repos/at-ai/tp/actions/secrets/public-key type=owner
+[debug] [2020-12-16T15:33:15.643Z] <<< [apiv2][status] GET https://api.github.com/repos/at-ai/tp/actions/secrets/public-key 403
+[debug] [2020-12-16T15:33:15.644Z] <<< [apiv2][body] GET https://api.github.com/repos/at-ai/tp/actions/secrets/public-key {"message":"Must have admin rights to Repository.","documentation_url":"https://docs.github.com/rest/reference/actions#get-a-repository-public-key"}
