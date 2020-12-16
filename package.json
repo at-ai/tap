@@ -19,6 +19,7 @@
   "scripts": {
     "run:calculator": "lerna run calculate --scope @tp/calculator --stream",
     "serve:app": "lerna run serve --scope @tp/app --stream",
+    "build:app": "lerna run build --scope @tp/app --stream",
     "api:generate": "lerna run api:generate --scope @tp/core --stream",
     "test:calculator": "lerna run test --scope @tp/calculator --stream"
   },
