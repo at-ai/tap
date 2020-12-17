@@ -1,4 +1,5 @@
-import { mainRegions, TP } from "@tp/core";
+import { mainRegions, navigate, TP } from "@tp/core";
+import { timeOut } from "@uxland/functional-utilities";
 import { IRegion, RegionHost } from "@uxland/uxl-regions";
 import { routerRegion } from "@uxland/uxl-routed-region";
 import {
@@ -21,6 +22,15 @@ export class Shell extends RegionHost(LitElement) {
     route: "",
   })
   shellContent: IRegion;
+
+  connectedCallback(): void {
+    super.connectedCallback();
+    // NOTE: this workaround is temporal only for unique module
+    timeOut.run(() => {
+      if (document.location.pathname.indexOf("calculator") == -1)
+        navigate(`/calculator`);
+    }, 10);
+  }
 
   render(): TemplateResult {
     return html`<uxl-content-switcher
