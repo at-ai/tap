@@ -11,6 +11,7 @@ import {
   TemplateResult,
   unsafeCSS,
 } from "lit-element";
+import { nothing } from "lit-html";
 import { repeat } from "lit-html/directives/repeat";
 import { exportToXLSX } from "../../../app/export-to-xlsx";
 import {
@@ -38,27 +39,35 @@ export class Calculator extends locale(LitElement) {
   exportMarks: GroupMarks;
 
   render(): TemplateResult {
-    return html`<div class="marks-lists">
-      <vaadin-upload
-        accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
-        max-files="1"
-        @files-changed=${this.fileLoaded.bind(this)}
-      ></vaadin-upload>
-      <vaadin-button @click=${this.exportToXLSX.bind(this)}
-        >EXPORT</vaadin-button
-      >
-      ${this.groupMarks
+    return html`<div class="calculator-container">
+      <div class="calculator-actions">
+        <vaadin-upload
+          accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+          max-files="1"
+          @files-changed=${this.fileLoaded.bind(this)}
+        ></vaadin-upload>
+        <vaadin-button
+          @click=${this.exportToXLSX.bind(this)}
+          ?disabled=${!this.groupMarks ||
+          Object.keys(this.groupMarks).length == 0}
+        >
+          EXPORT
+        </vaadin-button>
+      </div>
+      ${this.groupMarks && Object.keys(this.groupMarks).length > 0
         ? repeat(
             Object.keys(this.groupMarks),
             (g) =>
-              html`<h1>${g}</h1>
+              html`<div class="marks-lists">
+                <h1>${g}</h1>
                 <marks-grid
                   .items=${this.groupMarks[g]}
                   @data-updated=${this.dataUpdated.bind(this, g)}
-                ></marks-grid>`
+                ></marks-grid>
+              </div>`
           )
-        : html`<div>waiting</div>`}
-    </div>`;
+        : nothing}
+    </div> `;
   }
 
   static get styles(): CSSResult {

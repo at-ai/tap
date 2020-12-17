@@ -22,6 +22,7 @@ import { StudentMarks } from "../../domain";
 import styles from "./styles.scss";
 
 interface Column {
+  textAlign: "start" | "center" | "end";
   path: string;
   header: string;
   renderer: (root, column, model) => void;
@@ -40,12 +41,13 @@ export default class MarksGrid extends locale(propertiesObserver(LitElement)) {
   render(): TemplateResult {
     return html`<div class="grid">
       ${this.items?.length > 0
-        ? html`<vaadin-grid style="width: 100vw" multi-sort>
+        ? html`<vaadin-grid multi-sort>
             ${repeat(
               this.columns,
               (c) =>
                 html`<vaadin-grid-sort-column
-                  text-align="start"
+                  text-align=${c.textAlign}
+                  auto-width
                   path=${c.path}
                   header=${c.header}
                   .renderer=${c.renderer}
@@ -74,6 +76,7 @@ export default class MarksGrid extends locale(propertiesObserver(LitElement)) {
     return Object.keys(item)
       ?.filter((k) => k != "id")
       ?.map((k) => ({
+        textAlign: fixHeaders.indexOf(k) > -1 ? "start" : "center",
         path: k,
         header: k,
         renderer:

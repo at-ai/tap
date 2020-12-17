@@ -5,6 +5,25 @@
   width: 100%;
 }
 
-.marks-lists {
+.calculator-container {
   @include layout-vertical;
+  width: 100%;
+
+  .calculator-actions {
+    @include layout-horizontal;
+    @include layout-center-center;
+    padding: $uxl-units-size-20;
+
+    vaadin-upload {
+      margin: $uxl-units-size-8;
+    }
+    vaadin-button {
+      margin: $uxl-units-size-8;
+    }
+  }
+
+  .marks-lists {
+    @include layout-vertical;
+    margin: $uxl-units-size-20;
+  }
 }

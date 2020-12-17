@@ -1,8 +1,17 @@
 import { mainRegions, TP } from "@tp/core";
 import { IRegion, RegionHost } from "@uxland/uxl-regions";
 import { routerRegion } from "@uxland/uxl-routed-region";
-import { customElement, html, LitElement, TemplateResult } from "lit-element";
+import {
+  css,
+  CSSResult,
+  customElement,
+  html,
+  LitElement,
+  TemplateResult,
+  unsafeCSS,
+} from "lit-element";
 import { shellContentId } from "./constants";
+import styles from "./styles.scss";
 
 @customElement(`${TP}-shell`)
 export class Shell extends RegionHost(LitElement) {
@@ -18,5 +27,11 @@ export class Shell extends RegionHost(LitElement) {
       id=${shellContentId}
       router-region
     ></uxl-content-switcher>`;
+  }
+
+  static get styles(): CSSResult {
+    return css`
+      ${unsafeCSS(styles)}
+    `;
   }
 }
