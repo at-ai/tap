@@ -1,4 +1,4 @@
-import { PrismAppBase } from "@uxland/uxl-prism";
+import { PrismAppBase, setView } from "@uxland/uxl-prism";
 import { locales } from "./locales";
 import { TPBootstrapper } from "./bootstrapper";
 import { TPUserInfo } from "./domain";
@@ -23,6 +23,7 @@ export class TPAppBase extends PrismAppBase {
       ...this.options,
       language: "ca",
       locales: locales,
+      fetchLogin: () => this.doLogin() as any,
       fetchUser: () => this.doFetchUser() as any,
     };
   }
@@ -34,6 +35,31 @@ export class TPAppBase extends PrismAppBase {
     this.provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().useDeviceLanguage();
     return new TPBootstrapper(this.options).run();
+  }
+
+  get currentView() {
+    const view =
+      !this.initialized || this.isFetching
+        ? "splash"
+        : this.loggedIn
+        ? "shell"
+        : "login";
+    // @ts-ignore
+    if (view !== this._currentView) {
+      // @ts-ignore
+      this._currentView = view;
+    }
+    setView(view);
+    return view;
+  }
+
+  private async doLogin(): Promise<TPUserInfo> {
+    try {
+      await firebase.auth().signInWithRedirect(this.provider);
+      return await this.doFetchUser();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   private async doFetchUser(): Promise<TPUserInfo> {
@@ -52,9 +78,7 @@ export class TPAppBase extends PrismAppBase {
             },
           ],
         });
-      else {
-        await firebase.auth().signInWithRedirect(this.provider);
-      }
+      else return Promise.reject({ code: 401 });
     } catch (error) {
       console.log(error);
       // Handle Errors here.
@@ -68,14 +92,3 @@ export class TPAppBase extends PrismAppBase {
     }
   }
 }
-
-// LOGOUT
-// firebase
-//   .auth()
-//   .signOut()
-//   .then(function () {
-//     // Sign-out successful.
-//   })
-//   .catch(function (error) {
-//     // An error happened.
-//   });

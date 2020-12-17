@@ -1,0 +1,9 @@
+:host {
+  @include layout;
+  height: var(--window-inner-height);
+}
+
+uxl-content-switcher {
+  @include layout-flex;
+  @include layout;
+}
