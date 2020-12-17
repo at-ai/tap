@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "teacher-assistant-portal",
     "public": "packages/app/dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "rewrites": [

@@ -1,8 +1,9 @@
 import { UserInfo } from "@uxland/uxl-prism";
 import { ViewDefinition as CoreViewDefinition } from "@uxland/uxl-regions";
-
-export interface TPUserInfo extends UserInfo {
-  name: string;
+export interface TPUserInfo
+  extends UserInfo,
+    firebase.default.auth.AdditionalUserInfo {
+  token: string;
 }
 
 export interface ViewDefinition extends CoreViewDefinition {
