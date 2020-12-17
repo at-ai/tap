@@ -38,18 +38,24 @@ export class TPAppBase extends PrismAppBase {
 
   private async doFetchUser(): Promise<TPUserInfo> {
     try {
-      const result = await firebase.auth().signInWithPopup(this.provider);
-      return Promise.resolve({
-        ...result.additionalUserInfo,
-        token: (result.credential as any).accessToken,
-        modules: [
-          {
-            folder: "calculator",
-            moduleId: "calculator",
-            type: "local",
-          },
-        ],
-      });
+      await firebase.auth().getRedirectResult();
+      const user = firebase.auth().currentUser;
+      if (user)
+        return Promise.resolve({
+          ...user.providerData[0],
+          token: "",
+          modules: [
+            {
+              folder: "calculator",
+              moduleId: "calculator",
+              type: "local",
+            },
+          ],
+        });
+      else {
+        await firebase.auth().signInWithRedirect(this.provider);
+        console.log("after redirect");
+      }
     } catch (error) {
       console.log(error);
       // Handle Errors here.
@@ -63,3 +69,14 @@ export class TPAppBase extends PrismAppBase {
     }
   }
 }
+
+// LOGOUT
+// firebase
+//   .auth()
+//   .signOut()
+//   .then(function () {
+//     // Sign-out successful.
+//   })
+//   .catch(function (error) {
+//     // An error happened.
+//   });
