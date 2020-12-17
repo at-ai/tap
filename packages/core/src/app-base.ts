@@ -54,7 +54,6 @@ export class TPAppBase extends PrismAppBase {
         });
       else {
         await firebase.auth().signInWithRedirect(this.provider);
-        console.log("after redirect");
       }
     } catch (error) {
       console.log(error);
