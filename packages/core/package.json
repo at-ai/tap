@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@uxland/functional-utilities": "^1.0.0-alpha.24",
-    "@uxland/uxl-prism": "^3.6.20"
+    "@uxland/uxl-prism": "^3.6.20",
+    "firebase": "^8.2.0"
   }
 }

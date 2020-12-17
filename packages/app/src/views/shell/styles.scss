@@ -4,3 +4,21 @@
   min-width: 1px;
   width: 100%;
 }
+
+.header {
+  @include layout-horizontal;
+  height: 56px;
+
+  .user-info {
+    @include layout-horizontal;
+    @include layout-center;
+    margin-right: $uxl-units-size-16;
+    &_name {
+      padding: $uxl-units-size-8;
+    }
+    &_avatar {
+      height: $uxl-units-size-40;
+      border-radius: 50%;
+    }
+  }
+}
